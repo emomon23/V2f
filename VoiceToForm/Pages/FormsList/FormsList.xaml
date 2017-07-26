@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:VoiceToForm.Pages;assembly=VoiceToForm"
+             Title="Forms"
+             x:Class="VoiceToForm.Pages.EditExistingForms.FormsList">
+    <StackLayout>
+      <ListView x:Name="formsListView" ItemsSource="{Binding FormList}" RowHeight="40">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout>
+                <StackLayout.GestureRecognizers>
+                  <TapGestureRecognizer
+                     Command="{Binding Path=BindingContext.FormSelected, 
+                                         Source={pages:ElementSource formsListView}}"
+                      CommandParameter="{Binding}" />
+                </StackLayout.GestureRecognizers>
+
+                <StackLayout Orientation="Horizontal">
+                  <Label Text="{Binding FormName}" FontSize="24"/>
+                </StackLayout>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+</ContentPage>

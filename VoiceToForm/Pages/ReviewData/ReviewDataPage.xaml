@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:VoiceToForm.Pages;assembly=VoiceToForm"
+             Title="Data"
+             x:Class="VoiceToForm.Pages.ReviewData.ReviewDataPage">
+
+  <StackLayout x:Name="mainLayout">
+  
+  <ScrollView>
+   <StackLayout x:Name="mainContentLayout" Margin="5,5,5,5" HeightRequest="{Binding DataContentHeight}">
+      <Label IsVisible="{Binding DisplayNoDataPresentMessage}" FontSize="25" TextColor="DarkRed" Text="{Binding NoDataExistsMessage}"></Label>
+      <ListView x:Name="dataListView" ItemsSource="{Binding CurrentRowNameValuePair}" RowHeight="70">
+        <ListView.ItemTemplate>
+          <DataTemplate>
+            <ViewCell>
+              <StackLayout>
+                  <StackLayout.GestureRecognizers>
+                    <TapGestureRecognizer
+                       Command="{Binding Path=BindingContext.RowSelected, 
+                                           Source={pages:ElementSource dataListView}}"
+                        CommandParameter="{Binding}" />
+                        </StackLayout.GestureRecognizers>
+
+                  <Label TextColor="Black" FontAttributes="Bold" Text="{Binding Key}" FontSize="20"/>
+                  <Label Text="{Binding Value}" FontSize="24"></Label>
+              </StackLayout>
+            </ViewCell>
+          </DataTemplate>
+        </ListView.ItemTemplate>
+      </ListView>
+    </StackLayout>
+  </ScrollView>
+
+  <StackLayout Orientation="Horizontal">
+      <StackLayout x:Name="prevButtonContainer" WidthRequest="{Binding ScreenHalfWidth}"></StackLayout>
+      <StackLayout x:Name="nextButtonContainer"></StackLayout>
+  </StackLayout>
+  </StackLayout>
+</ContentPage>

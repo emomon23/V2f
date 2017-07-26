@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="VoiceToForm.Pages.Settings.AppSettings"
+             Title="Settings">
+  
+  <StackLayout x:Name="MainLayout" Margin="5,10,5,0">
+    <StackLayout Orientation="Horizontal" Margin="0,0,0,10">
+      <Label Text="Delete Data After It's Uploaded:" FontSize="25"></Label>
+      <Switch x:Name="deleteDataToggle" IsToggled="{Binding DeleteAfterUpload}"></Switch>
+    </StackLayout>
+    
+    <StackLayout Orientation="Horizontal" Margin="0,0,0,10">
+      <Label Text="Upload data immediately after it's saved:" FontSize="25"></Label>
+      <Switch x:Name="uploadImmediately" IsToggled="{Binding UploadImmediately}"></Switch>
+    </StackLayout>
+    
+    <StackLayout Orientation="Horizontal" Margin="0,0,0,10">
+      <Label Text="App Identifier:" FontSize="25"></Label>
+      <Label Text="{Binding Settings.AppIdentifier}" FontAttributes="Bold" FontSize="25"></Label>
+    </StackLayout>
+
+    <StackLayout Orientation="Horizontal" Margin="0,0,0,10">
+      <Label Text="App Phrase:" FontSize="25"></Label>
+      <Label Text="{Binding Settings.AppPhrase}" FontAttributes="Bold" FontSize="25"></Label>
+    </StackLayout>
+
+    <StackLayout Orientation="Horizontal" Margin="0,0,0,10">
+      <Label Text="Last Upload:" FontSize="25"></Label>
+      <Label Text="{Binding LastUploadDate}" FontAttributes="Bold" FontSize="25"></Label>
+    </StackLayout>
+
+    <StackLayout Orientation="Horizontal" Margin="0,0,0,10">
+      <Label Text="Confirmation:" FontSize="25"></Label>
+      <Label Text="{Binding LastUploadConfirmation }" FontAttributes="Bold" FontSize="25"></Label>
+    </StackLayout>
+  </StackLayout>
+</ContentPage>
